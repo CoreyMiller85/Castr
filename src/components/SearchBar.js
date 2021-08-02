@@ -1,7 +1,12 @@
 import React from "react";
 
 const SearchBar = (props) => {
-	return <div>Search Bar</div>;
+	return (
+		<div>
+			<input type="text" placeholder="search for card" />
+			<button>Submit</button>
+		</div>
+	);
 };
 
 export default SearchBar;
