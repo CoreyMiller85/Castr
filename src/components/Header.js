@@ -30,8 +30,8 @@ const Header = (props) => {
 					<NavLink to="/login">
 						<li>Log-In</li>
 					</NavLink>
-					<NavLink to="/signup">
-						<li>Sign Up</li>
+					<NavLink to="/register">
+						<li>Register</li>
 					</NavLink>
 				</ul>
 			</nav>
