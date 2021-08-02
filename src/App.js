@@ -4,6 +4,8 @@ import Main from "./components/Main";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Register from "./components/Register";
 import LogIn from "./components/LogIn";
+import Collection from "./components/Collection";
+import Decks from "./components/Decks";
 
 const App = () => {
 	return (
@@ -19,6 +21,12 @@ const App = () => {
 					</Route>
 					<Route exact path="/login">
 						<LogIn />
+					</Route>
+					<Route exact path="/collection">
+						<Collection />
+					</Route>
+					<Route exact path="/decks">
+						<Decks />
 					</Route>
 				</Switch>
 			</div>
