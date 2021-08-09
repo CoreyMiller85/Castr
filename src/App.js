@@ -6,7 +6,7 @@ import Register from "./components/Register";
 import LogIn from "./components/LogIn";
 import Collection from "./components/Collection";
 import Decks from "./components/Decks";
-import axios from "axios";
+import cardDBClient from "./components/API/CardDB";
 
 const App = () => {
 	const [cards, setCards] = useState([]);
@@ -16,7 +16,7 @@ const App = () => {
 	}, []);
 
 	const getCards = async () => {
-		const res = await axios.get("http://localhost:3002/api/cards");
+		const res = await cardDBClient.get("/api/cards");
 		setCards([...res.data]);
 	};
 	return (
@@ -25,7 +25,7 @@ const App = () => {
 				<Header />
 				<Switch>
 					<Route exact path="/">
-						<Main />
+						<Main cards={cards} />
 					</Route>
 					<Route exact path="/register">
 						<Register />
