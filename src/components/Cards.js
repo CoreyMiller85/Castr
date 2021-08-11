@@ -9,6 +9,12 @@ const Cards = (props) => {
 	return (
 		<div style={{ display: "flex", width: "100%", flexFlow: "row wrap" }}>
 			{cardList}
+			<div
+				style={{ color: "white", fontSize: "96px", marginLeft: "1rem" }}
+				onClick={props.nextPage}
+			>
+				+
+			</div>
 		</div>
 	);
 };

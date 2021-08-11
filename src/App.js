@@ -11,14 +11,15 @@ import cardDBClient from "./components/API/CardDB";
 const App = () => {
 	const [cards, setCards] = useState([]);
 	const [query, setQuery] = useState("");
+	const [page, setPage] = useState(0);
 
 	useEffect(() => {
-		getCards("jace");
+		getCards();
 	}, []);
 
-	const getCards = async (name) => {
-		const res = await cardDBClient.get(`/api/cards/${name}`);
-		setCards(res.data);
+	const getCards = async (name = "jace") => {
+		const res = await cardDBClient.get(`/api/cards/?name=${name}`);
+		setCards(res.data.cards);
 	};
 
 	const handleQuery = (e) => {
@@ -33,6 +34,12 @@ const App = () => {
 		setQuery("");
 	};
 
+	const handleNextPage = async () => {
+		setPage(page + 1);
+		const res = await cardDBClient.get(`/api/cards?page=${page}`);
+		setCards(res.data.cards);
+	};
+
 	return (
 		<Router>
 			<div>
@@ -43,7 +50,7 @@ const App = () => {
 				/>
 				<Switch>
 					<Route exact path="/">
-						<Main cards={cards} />
+						<Main cards={cards} nextPage={handleNextPage} />
 					</Route>
 					<Route exact path="/register">
 						<Register />

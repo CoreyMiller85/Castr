@@ -13,7 +13,7 @@ const Main = (props) => {
 	return (
 		<div style={styles.container}>
 			<h2> Main Container </h2>
-			<Cards cards={props.cards} />
+			<Cards cards={props.cards} nextPage={props.nextPage} />
 		</div>
 	);
 };
