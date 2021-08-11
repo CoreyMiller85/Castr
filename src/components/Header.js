@@ -33,7 +33,11 @@ const Header = (props) => {
 			<Link to="/" style={styles.header}>
 				CASTR
 			</Link>
-			<SearchBar />
+			<SearchBar
+				query={props.query}
+				searchValue={props.searchValue}
+				onSubmit={(e) => props.onSubmit(e)}
+			/>
 			<nav>
 				<ul className="header__nav-links" style={styles.navLinks}>
 					<NavLink to="/collection" style={styles.links}>

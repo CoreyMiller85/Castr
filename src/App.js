@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -10,19 +10,37 @@ import cardDBClient from "./components/API/CardDB";
 
 const App = () => {
 	const [cards, setCards] = useState([]);
+	const [query, setQuery] = useState("");
 
 	useEffect(() => {
-		getCards();
+		getCards("jace");
 	}, []);
 
-	const getCards = async () => {
-		const res = await cardDBClient.get("/api/cards");
-		setCards([...res.data]);
+	const getCards = async (name) => {
+		const res = await cardDBClient.get(`/api/cards/${name}`);
+		setCards(res.data);
 	};
+
+	const handleQuery = (e) => {
+		const value = e.target.value;
+		setQuery(value);
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(query);
+		getCards(query);
+		setQuery("");
+	};
+
 	return (
 		<Router>
 			<div>
-				<Header />
+				<Header
+					query={handleQuery}
+					searchValue={query}
+					onSubmit={handleSubmit}
+				/>
 				<Switch>
 					<Route exact path="/">
 						<Main cards={cards} />
