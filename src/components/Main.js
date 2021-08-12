@@ -4,7 +4,7 @@ import Cards from "./Cards";
 
 const styles = {
 	container: {
-		backgroundImage: `url(${background})`,
+		backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), url(${background})`,
 		height: "93vh",
 	},
 };

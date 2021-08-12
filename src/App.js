@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -31,12 +31,11 @@ const App = () => {
 		e.preventDefault();
 		console.log(query);
 		getCards(query);
-		setQuery("");
 	};
 
 	const handleNextPage = async () => {
 		setPage(page + 1);
-		const res = await cardDBClient.get(`/api/cards?page=${page}`);
+		const res = await cardDBClient.get(`/api/cards?name=${query}&page=${page}`);
 		setCards(res.data.cards);
 	};
 
