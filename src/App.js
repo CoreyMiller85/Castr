@@ -17,8 +17,10 @@ const App = () => {
 		getCards();
 	}, []);
 
-	const getCards = async (name = "jace") => {
-		const res = await cardDBClient.get(`/api/cards/?name=${name}`);
+	const getCards = async (name = "alrund") => {
+		const res = await cardDBClient.get(
+			`/api/cards/q?name=${name}&legalities=standard&page=0&size=10`
+		);
 		setCards(res.data.cards);
 	};
 
