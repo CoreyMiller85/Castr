@@ -5,32 +5,45 @@ import { NavLink, Link } from "react-router-dom";
 const Header = (props) => {
 	const styles = {
 		header: {
-			height: "7vh",
+			height: "100%",
 			display: "flex",
 			justifyContent: "space-between",
-			background: "#333",
+			alignItems: "center",
+			background: "#2F2C26",
 			color: "#fff",
 		},
 		logo: {
-			color: "white",
-			fontSize: "1.5rem",
+			padding: "12px",
+			width: "171px",
 			textDecoration: "none",
+			fontFamily: "Orbitron",
+			fontStyle: "normal",
+			fontWeight: "normal",
+			fontSize: "42px",
+			lineHeight: "53px",
+			textAlign: "center",
+			color: "#C2986E",
 		},
 		navLinks: {
 			display: "flex",
 			justifyContent: "space-around",
+			marginRight: "1rem",
 		},
 		links: {
+			background: "#DB8D3A",
 			color: "white",
 			marginLeft: "1rem",
+			padding: "0.5rem 1rem",
+			borderRadius: "4px",
 			fontSize: "1.5rem",
 			listStyle: "none",
 			textDecoration: "none",
 		},
 	};
+
 	return (
 		<div className="header" style={styles.header}>
-			<Link to="/" style={styles.header}>
+			<Link to="/" style={styles.logo}>
 				CASTR
 			</Link>
 			<SearchBar

@@ -1,5 +1,5 @@
 import React from "react";
-import background from "../img/background-dark-fant.jpeg";
+import background from "../img/Wallpaper-10897410.jpeg";
 import Cards from "./Cards";
 
 const styles = {
@@ -12,7 +12,6 @@ const styles = {
 const Main = (props) => {
 	return (
 		<div style={styles.container}>
-			<h2> Main Container </h2>
 			<Cards cards={props.cards} nextPage={props.nextPage} />
 		</div>
 	);
