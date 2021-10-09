@@ -12,7 +12,11 @@ const styles = {
 const Main = (props) => {
 	return (
 		<div style={styles.container}>
-			<Cards cards={props.cards} nextPage={props.nextPage} />
+			<Cards
+				cards={props.cards}
+				nextPage={props.nextPage}
+				prevPage={props.prevPage}
+			/>
 		</div>
 	);
 };

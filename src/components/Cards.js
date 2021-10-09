@@ -8,6 +8,12 @@ const Cards = (props) => {
 
 	return (
 		<div style={{ display: "flex", width: "100%", flexFlow: "row wrap" }}>
+			<div
+				style={{ color: "white", fontSize: "96px", marginLeft: "1rem" }}
+				onClick={props.prevPage}
+			>
+				-
+			</div>
 			{cardList}
 			<div
 				style={{ color: "white", fontSize: "96px", marginLeft: "1rem" }}

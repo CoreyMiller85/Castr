@@ -1,6 +1,7 @@
 import React from "react";
 import SearchBar from "./SearchBar";
 import { NavLink, Link } from "react-router-dom";
+import ColorFilters from "./ColorFilters";
 
 const Header = (props) => {
 	const styles = {
@@ -51,6 +52,7 @@ const Header = (props) => {
 				searchValue={props.searchValue}
 				onSubmit={(e) => props.onSubmit(e)}
 			/>
+			<ColorFilters filterColors={props.filterColors} />
 			<nav>
 				<ul className="header__nav-links" style={styles.navLinks}>
 					<NavLink to="/collection" style={styles.links}>
