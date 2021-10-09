@@ -53,14 +53,15 @@ const App = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		// console.log(queryObject);
 		const urlParams = new URLSearchParams(queryObject);
 		let string = [];
 		for (const [key, value] of urlParams) {
-			string.push(`${key}:${value}`);
+			string.push(`${key}=${value}`);
 		}
 		const searchString = string.join("&");
 		console.log(searchString);
-		getCards(queryString);
+		getCards(searchString);
 	};
 
 	const handleNextPage = async () => {
